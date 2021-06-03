@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 
 // importar express validator
-const { body } = require('express-validator/check');
+const { body } = require('express-validator');
 
 // importar el controller
 const proyectosController = require ('../controllers/proyectosController');
+const tareasController = require('../controllers/tareasController')
 
 
 module.exports = function(){
@@ -31,6 +32,15 @@ module.exports = function(){
     // Eliminar Proyecto
     router.delete('/proyectos/:url', proyectosController.eliminarProyecto);
 
+    // Tareas
+    router.post('/proyectos/:url', tareasController.agregarTarea);
+
+    // Actualizar Tarea
+    router.patch('/tareas/:id', tareasController.cambiarEstadoTarea);
+
+    // Eliminar Tarea
+    router.delete('/tareas/:id', tareasController.eliminarTarea);
+    
     return router;
 }
 
