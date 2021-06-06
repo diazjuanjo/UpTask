@@ -13,13 +13,13 @@ html(lang="en")
                             .alerta(class=`${categoria}`)
                                 p= error
 
-            form#formulario.caja.caja-login(method="POST" action="/crear-cuenta" required)
+            form#formulario.caja.caja-login(method="POST" action="/crear-cuenta")
                 .campo 
                     label(for="email") E-mail: 
-                    input(type="email" name="email" placeholder="Tu Email" value= email)
+                    input(type="text" name="email" placeholder="Tu Email" value= email )
                 .campo 
                     label(for="password") Password: 
-                    input(type="password" name="password" placeholder="Tu Password" value= password required)
+                    input(type="password" name="password" placeholder="Tu Password" value= password )
                 .campo.enviar 
                     input.boton(type="submit" value="Crear Cuenta")
                 .campo 
