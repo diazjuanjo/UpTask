@@ -10,7 +10,6 @@ const tareasController = require('../controllers/tareasController');
 const usuariosController = require('../controllers/usuariosController');
 const authController = require('../controllers/authController');
 
-
 module.exports = function() {
 
     // rutas para el home
@@ -72,6 +71,7 @@ module.exports = function() {
     // crear nueva cuenta
     router.get('/crear-cuenta', usuariosController.formCrearCuenta);
     router.post('/crear-cuenta', usuariosController.crearCuenta);
+    router.get('/confirmar/:correo', usuariosController.confirmarCuenta);
 
     // Iniciar sesión
     router.get('/iniciar-sesion', usuariosController.formIniciarSesion);

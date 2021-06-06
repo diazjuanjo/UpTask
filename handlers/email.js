@@ -21,8 +21,8 @@ const generarHTML = (archivo, opciones = {}) => {
 }
 exports.enviar = async (opciones) => {
     const html = generarHTML(opciones.archivo, opciones);
-    const text = htmlToText(html);
-    let info = {
+    const text = htmlToText.fromString(html);
+    let opcionesEmail = {
         from: 'UpTask <no-reply@uptask.com>',
         to: opciones.usuario.email,
         subject: opciones.subject,
@@ -30,7 +30,7 @@ exports.enviar = async (opciones) => {
         html 
     };
     const enviarEmail = util.promisify(transport.sendMail, transport);
-    return enviarEmail.call(transport, info);
+    return enviarEmail.call(transport, opcionesEmail);
 }
 
 

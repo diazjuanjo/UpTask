@@ -63,7 +63,7 @@ app.use((req, res, next) => {
     res.locals.mensajes = req.flash();
     res.locals.usuario = {...req.user} || null;
     next();
-})
+});
 
 app.use('/', routes());
 

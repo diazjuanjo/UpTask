@@ -94,7 +94,7 @@ exports.actualizarPassword = async (req, res) => {
                 [Op.gte] : Date.now()
             }
         }
-    })
+    });
 
     // verificamos si el usuario existe
     if(!usuario){
