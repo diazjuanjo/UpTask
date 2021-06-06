@@ -7,6 +7,7 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const passport = require('./config/passport');
+require('dotenv').config({ path: 'variables.env'});
 
 // helpers con algunas funciones
 const helpers = require('./helpers');
@@ -67,6 +68,12 @@ app.use((req, res, next) => {
 
 app.use('/', routes());
 
-app.listen(3000);
+// Servidor y Puerto
+const host = process.env.HOST || '0.0.0.0';
+const port = process.env.PORT || 3000;
+
+app.listen(port, host, () => {
+    console.log('El servidor esta funcionando');
+});
 
 // require('./handlers/email');
